@@ -1,0 +1,17 @@
+{
+    "contents" : "fizzBuzz <- function(number) {\n\tif(number %% 5 == 0 && number %% 3 == 0)\n\t return('fizzBuzz')\n\tif(number %% 3 == 0)\n\t return('fizz')\n\tif(number %% 5 == 0)\n\t return('buzz')\n\n\tnumber\t\n}\n\napplyFizzBuzz <- function(array) {\n  res = lapply(array, fizzBuzz)\n\tfor(stuff in res) {\n\t\tcat (stuff)\n\t\tcat (' ')\n\t}\n  \n  res\n}\n\napplyFizzBuzz(x<-1:100)\n",
+    "created" : 1453144402600.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3481406422",
+    "id" : "73391543",
+    "lastKnownWriteTime" : 1453145551,
+    "path" : "~/FizzBuzz/fizzbuzz.R",
+    "project_path" : "fizzbuzz.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
