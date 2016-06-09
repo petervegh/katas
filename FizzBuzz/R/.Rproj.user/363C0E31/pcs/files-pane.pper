@@ -1,0 +1,9 @@
+{
+    "path" : "~/FizzBuzz",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "contents" : "library('RUnit')\n\nsource('fizzbuzz.R')\n\ntest.suite <- defineTestSuite(\"fizzbuzz\",\n                             dirs = file.path(\"tests\"),\n                             testFileRegexp = '^\\\\d+\\\\.R')\n\ntest.result <- runTestSuite(test.suite)\n\nprintTextProtocol(test.result)",
+    "created" : 1453146169022.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1085940803",
+    "id" : "7A8DE00E",
+    "lastKnownWriteTime" : 1453146531,
+    "path" : "~/FizzBuzz/run_tests.R",
+    "project_path" : "run_tests.R",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

@@ -1,0 +1,17 @@
+{
+    "contents" : "test.should_return_fizz_for_3 <- function() {\n  expected = list('fizz')\n  checkEquals(expected, applyFizzBuzz(array<-3:3))\n}\n\ntest.should_return_fizz_for_6 <- function() {\n  expected = list('fizz')\n  checkEquals(expected, applyFizzBuzz(array<-6:6))\n}\n\ntest.should_return_buzz_for_5 <- function() {\n  expected = list('buzz')\n  checkEquals(expected, applyFizzBuzz(array<-5:5))\n}\n\ntest.should_return_buzz_for_10 <- function() {\n  expected = list('buzz')\n  checkEquals(expected, applyFizzBuzz(array<-10:10))\n}\n\ntest.should_return_1_for_1 <- function() {\n  expected = list(1)\n  checkEquals(expected, applyFizzBuzz(array<-1:1))\n}\n",
+    "created" : 1453145576398.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3432699459",
+    "id" : "F78B8547",
+    "lastKnownWriteTime" : 1453148021,
+    "path" : "~/FizzBuzz/tests/1.R",
+    "project_path" : "tests/1.R",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
