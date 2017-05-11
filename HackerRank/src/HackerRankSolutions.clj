@@ -1,4 +1,6 @@
-(ns HackerRankSolutions)
+(ns HackerRankSolutions
+  (:use clojure.pprint
+        clojure.walk))
 
 (defn test01[delim lst]
   (doall (map #(print % " ") (remove #( >= delim %) lst))))
@@ -97,18 +99,93 @@
 
 (println (fibonacci 6))
 
-; For a given integer K, print the first K rows of Pascal's Triangle.
-; Print each row with each value separated by a single space.
-; The value at the Nth row and Rth column of the triangle is equal to n!/(r! * (n-r)!) where indexing starts from 0.
-; These values are the binomial coefficients.
+
+; String-o-permute
+
+(defn swap [str]
+  (loop [[a b & rest] (clojure.string/split str #"")
+         result []]
+    (if (empty? rest)
+      (conj result b a)
+      (recur rest (conj result b a)))))
+
+(defn run-swap [strList]
+  (doall (map #(println (clojure.string/join (swap %))) strList)))
+
+(defn read-lines [num]
+  (loop [n num lst []]
+    (if (zero? n)
+      lst
+      (recur (dec n) (conj lst (read-line))))))
+
+;(def input (read-lines (Integer/parseInt (read-line))))
+;(run-swap input)
+
+;(defn matrix-builder [n m]
+;  (loop [row n matrix (transient [])]
+;    (if (> row n)
+;      matrix
+;      (recur (inc row) (conj matrix (repeat m 0))))))
+
+;(matrix-builder 5 5)
+
+;(prewalk #((inc %) %) matrix)
+;(pprint matrix)
+
+(let [the-array (make-array Long/TYPE 2 3) ]
+  (dotimes [nn 6]
+    (let [ii    (quot nn 3)
+          jj    (rem  nn 3) ]
+      (aset the-array ii jj nn)
+      ))
+  (pprint the-array)
+  )
+
+;(pprint matrix)
+
+(defn randomize-matrix [M n]
+  (dotimes [nn n]
+    (let [ii (rand 9)
+          jj (rand 9)]
+      (aset-int M ii jj 1))))
+
+(def matrix (make-array Long/TYPE 10 10))
+(randomize-matrix matrix 30)
+(pprint matrix)
 
 
-(defn pascalTriangle [n]
-  (loop [cnt 1]
-    (if (= cnt n)
-      (println "last row")
-      (doseq [r (range 1 cnt)]
-        (println r))
-      (recur (inc cnt)))))
 
-(pascalTriangle 5)
+; Convex Hull with Graham-scan
+(def points [[1 1] [2 5] [3 3] [5 3] [3 2] [2 2]])
+(defn find-min
+  "Finds the minimum x or y coordinate point in points"
+  [points order]
+  (apply min-key order points))
+
+(defn find-P
+  ""
+  [points]
+  (find-min (filter #(= (second %) (second (find-min points second))) points) first))
+
+;- (x - x1) / (y - y1) (where (x1, y1)
+
+(def P (find-P points))
+(defn cosine
+  [x]
+  (+ (* (first P) (first x)) (* (second P) (second x))))
+
+(defn sort-points [points]
+  (sort-by cosine points))
+
+(println (sort-points points))
+
+(defn ccw [p1 p2 p3]
+  "Three points are a counter-clockwise turn if ccw > 0, clockwise if ccw < 0,
+   and collinear if ccw = 0 because ccw is a determinant that gives twice the signed
+   area of the triangle formed by p1, p2 and p3."
+  (- (* (- (first p2) (first p1)) (- (second p3) (second p1))))
+     (* (- (second p2) (second p1)) (- (first p3) (first p1))))
+
+(println (ccw [1 1] [2 3] [3 2]))
+
+(println (find-P points))
